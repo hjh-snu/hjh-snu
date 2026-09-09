@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="홍준현 — 서울대학교 첨단융합학부">
-  <meta name="theme-color" content="#0b0b0c">
-  <title>홍준현 — Home</title>
+  <meta name="description" content="Hong Junhyeon — Seoul National University, Advanced Convergence">
+  <meta name="theme-color" content="#090909">
+  <title>Hong Junhyeon</title>
   <style>
     :root {
-      --black: #0b0b0c;
-      --black-soft: #151517;
-      --white: #f5f5f2;
-      --gray: #a7a7ad;
-      --line: rgba(245, 245, 242, .18);
-      --line-soft: rgba(245, 245, 242, .09);
-      --max-width: 1180px;
+      --bg: #090909;
+      --surface: #111111;
+      --white: #f4f4ef;
+      --muted: #999995;
+      --line: rgba(244, 244, 239, .17);
+      --line-soft: rgba(244, 244, 239, .08);
+      --max: 1200px;
     }
 
     * { box-sizing: border-box; }
@@ -25,15 +25,15 @@
       margin: 0;
       overflow-x: hidden;
       color: var(--white);
-      background: var(--black);
-      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
-      line-height: 1.6;
+      background: var(--bg);
+      font-family: Inter, Pretendard, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.35;
     }
 
     a { color: inherit; }
 
     .wrap {
-      width: min(var(--max-width), calc(100% - 48px));
+      width: min(var(--max), calc(100% - 48px));
       margin: 0 auto;
     }
 
@@ -41,27 +41,33 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 25px 0;
+      padding: 24px 0;
       border-bottom: 1px solid var(--line-soft);
     }
 
     .brand {
-      font-size: 1rem;
+      font-size: .9rem;
       font-weight: 800;
-      letter-spacing: -.04em;
+      letter-spacing: -.03em;
       text-decoration: none;
     }
 
-    .brand span {
-      color: var(--gray);
-      font-weight: 500;
+    .brand::after {
+      margin-left: 6px;
+      color: var(--muted);
+      content: "01";
+      font-size: .72rem;
+      font-weight: 600;
+      vertical-align: top;
     }
 
     nav {
       display: flex;
-      gap: 24px;
-      color: var(--gray);
-      font-size: .9rem;
+      gap: 26px;
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 750;
+      letter-spacing: .08em;
     }
 
     nav a {
@@ -72,321 +78,348 @@
     nav a:hover,
     nav a:focus-visible { color: var(--white); }
 
-    main { padding-bottom: 64px; }
-
     .hero {
       position: relative;
-      min-height: 650px;
-      padding: clamp(92px, 13vw, 165px) 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 45px;
+      min-height: 720px;
+      padding: 118px 0 58px;
       border-bottom: 1px solid var(--line);
     }
 
-    .hero::before {
+    .hero::after {
       position: absolute;
-      top: 0;
-      right: -10vw;
+      right: -13vw;
+      bottom: 0;
       z-index: -1;
-      width: min(55vw, 720px);
-      height: 100%;
+      width: min(80vw, 1050px);
+      height: min(80vw, 1050px);
       content: "";
-      opacity: .8;
-      background-image:
-        linear-gradient(to right, var(--line-soft) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--line-soft) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: linear-gradient(to right, transparent, black 28%, black);
+      border: 1px solid var(--line-soft);
+      border-radius: 50%;
+      box-shadow: 0 0 0 min(7vw, 86px) var(--bg), 0 0 0 calc(min(7vw, 86px) + 1px) var(--line-soft);
     }
 
-    .eyebrow {
+    .index {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 27px;
-      color: var(--gray);
-      font-size: .84rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 750;
+      letter-spacing: .1em;
     }
 
-    .eyebrow::before {
-      width: 9px;
-      height: 9px;
+    .index::before {
+      width: 7px;
+      height: 7px;
       content: "";
       background: var(--white);
       border-radius: 50%;
     }
 
     h1 {
-      max-width: 970px;
       margin: 0;
-      font-size: clamp(3.5rem, 9.1vw, 8.8rem);
-      font-weight: 750;
-      letter-spacing: -.085em;
-      line-height: .9;
-      word-break: keep-all;
+      font-size: clamp(4rem, 10vw, 9.8rem);
+      font-weight: 800;
+      letter-spacing: -.095em;
+      line-height: .79;
     }
 
-    h1 .muted { color: #77777d; }
-
-    .lead {
-      max-width: 580px;
-      margin: 38px 0 0;
-      color: #d0d0d2;
-      font-size: clamp(1rem, 2vw, 1.18rem);
-      letter-spacing: -.025em;
-      word-break: keep-all;
+    h1 span {
+      display: block;
+      white-space: nowrap;
     }
 
-    .actions {
+    h1 span:last-child { color: #737370; }
+
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
+      gap: 8px;
+      max-width: 650px;
+      margin: 50px 0 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 20px;
-      border: 1px solid var(--white);
-      background: var(--white);
-      color: var(--black);
-      font-size: .94rem;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .2s ease, background .2s ease, color .2s ease;
+    .tags li {
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      color: #d2d2cc;
+      font-size: .74rem;
+      font-weight: 750;
+      letter-spacing: .07em;
     }
 
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-3px);
-      background: transparent;
-      color: var(--white);
+    .profile {
+      align-self: end;
+      padding: 23px 0 4px 25px;
+      border-left: 1px solid var(--line);
     }
 
-    .button--ghost {
-      border-color: var(--line);
-      background: transparent;
-      color: var(--white);
+    .profile-row {
+      padding: 0 0 23px;
+      margin: 0 0 23px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .button--ghost:hover,
-    .button--ghost:focus-visible {
-      border-color: var(--white);
-      background: var(--white);
-      color: var(--black);
-    }
-
-    .signature {
-      position: absolute;
-      right: 0;
-      bottom: 42px;
-      color: var(--gray);
-      font-family: Georgia, serif;
-      font-size: clamp(1.25rem, 3vw, 2.2rem);
-      font-style: italic;
-      letter-spacing: -.07em;
-    }
-
-    .section { padding-top: 100px; }
-
-    .section-label {
-      margin: 0 0 17px;
-      color: var(--gray);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .section h2 {
-      max-width: 720px;
+    .profile-row:last-child {
       margin: 0;
-      font-size: clamp(2rem, 4.7vw, 4.4rem);
-      font-weight: 700;
-      letter-spacing: -.075em;
-      line-height: 1.02;
-      word-break: keep-all;
+      border: 0;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: .69rem;
+      font-weight: 750;
+      letter-spacing: .1em;
+    }
+
+    .value {
+      display: block;
+      font-size: 1.03rem;
+      font-weight: 650;
+      letter-spacing: -.035em;
+      line-height: 1.22;
+    }
+
+    .value--small { font-size: .91rem; }
+
+    .section { padding: 100px 0 0; }
+
+    .section-intro {
+      display: grid;
+      grid-template-columns: 1fr minmax(200px, .55fr);
+      gap: 42px;
+      align-items: end;
+    }
+
+    .section-number {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 750;
+      letter-spacing: .1em;
+    }
+
+    h2 {
+      max-width: 710px;
+      margin: 0;
+      font-size: clamp(2.3rem, 5.2vw, 5rem);
+      font-weight: 780;
+      letter-spacing: -.09em;
+      line-height: .9;
+    }
+
+    .section-side {
+      margin: 0;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .095em;
+      line-height: 1.75;
+      text-align: right;
     }
 
     .facts {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      margin-top: 48px;
+      margin-top: 54px;
       border-top: 1px solid var(--line);
       border-left: 1px solid var(--line-soft);
     }
 
     .fact {
-      min-height: 270px;
-      padding: 26px 27px 32px;
+      min-height: 282px;
+      padding: 25px 27px;
       border-right: 1px solid var(--line-soft);
       border-bottom: 1px solid var(--line);
     }
 
-    .fact-index {
+    .fact code {
       display: block;
-      margin-bottom: 70px;
-      color: var(--gray);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .08em;
+      margin-bottom: 78px;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: .72rem;
+      font-weight: 750;
+      letter-spacing: .09em;
     }
 
     .fact h3 {
       margin: 0;
-      font-size: 1.3rem;
-      letter-spacing: -.055em;
-      word-break: keep-all;
+      font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+      font-weight: 670;
+      letter-spacing: -.065em;
+      line-height: 1.02;
+      word-break: break-word;
     }
 
     .fact p {
-      margin: 11px 0 0;
-      color: var(--gray);
-      font-size: .94rem;
-      word-break: keep-all;
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      line-height: 1.6;
     }
 
-    .statement {
-      display: grid;
-      grid-template-columns: minmax(120px, .35fr) 1fr;
-      gap: 40px;
+    .focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
       margin-top: 100px;
-      padding: 33px 0;
+      padding: 28px 0;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    .statement strong {
-      color: var(--gray);
-      font-size: .82rem;
-      letter-spacing: .08em;
+    .focus span {
+      position: relative;
+      margin-right: 22px;
+      padding-right: 22px;
+      font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+      font-weight: 650;
+      letter-spacing: -.05em;
     }
 
-    .statement p {
-      max-width: 780px;
-      margin: 0;
-      font-size: clamp(1.23rem, 2.65vw, 2rem);
-      font-weight: 500;
-      letter-spacing: -.06em;
-      line-height: 1.35;
-      word-break: keep-all;
+    .focus span:not(:last-child)::after {
+      position: absolute;
+      top: .48em;
+      right: 0;
+      width: 4px;
+      height: 4px;
+      content: "";
+      background: var(--muted);
+      border-radius: 50%;
     }
 
     .contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: end;
       margin-top: 100px;
-      padding: 58px 0;
+      padding: 70px 0;
       background: var(--white);
-      color: var(--black);
+      color: var(--bg);
     }
 
     .contact-inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      width: min(var(--max-width), calc(100% - 48px));
+      grid-template-columns: .8fr 1.2fr;
+      gap: 64px;
+      width: min(var(--max), calc(100% - 48px));
       margin: 0 auto;
     }
 
-    .contact h2 {
-      max-width: 390px;
-      margin: 0;
-      font-size: clamp(2.15rem, 4.2vw, 4.1rem);
-      letter-spacing: -.08em;
-      line-height: .98;
-      word-break: keep-all;
+    .contact .section-number { color: #6f6f6b; }
+
+    .contact h2 { max-width: 420px; }
+
+    .links {
+      border-top: 1px solid #c5c5c0;
     }
 
-    .contact-links {
+    .links a {
       display: grid;
-      border-top: 1px solid #c9c9c5;
-    }
-
-    .contact-links a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      grid-template-columns: 145px 1fr auto;
       gap: 20px;
-      padding: 17px 0;
-      border-bottom: 1px solid #c9c9c5;
-      font-size: 1rem;
-      font-weight: 700;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid #c5c5c0;
+      font-size: .9rem;
+      font-weight: 760;
       text-decoration: none;
       transition: padding .2s ease;
     }
 
-    .contact-links a:hover,
-    .contact-links a:focus-visible { padding-left: 9px; }
+    .links a:hover,
+    .links a:focus-visible { padding-left: 8px; }
 
-    .contact-links span {
-      color: #70706d;
-      font-size: .87rem;
-      font-weight: 500;
+    .links span:nth-child(2) {
+      color: #6f6f6b;
+      font-size: .8rem;
+      font-weight: 600;
     }
 
     footer {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 29px 0 42px;
-      color: var(--gray);
-      font-size: .82rem;
+      padding: 29px 0 40px;
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 650;
+      letter-spacing: .05em;
     }
 
     footer a {
       color: var(--white);
-      font-weight: 700;
       text-underline-offset: 4px;
     }
 
-    @media (max-width: 760px) {
-      .wrap { width: min(100% - 32px, var(--max-width)); }
+    @media (max-width: 780px) {
+      .wrap { width: min(100% - 32px, var(--max)); }
 
       header { padding: 20px 0; }
 
-      nav { gap: 15px; font-size: .81rem; }
+      nav { gap: 15px; font-size: .67rem; }
 
       .hero {
-        min-height: 610px;
-        padding: 95px 0 100px;
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 80px;
+        padding: 95px 0 48px;
       }
 
-      .hero::before {
-        width: 88vw;
-        right: -20vw;
-        background-size: 45px 45px;
-      }
+      .hero::after { right: -47vw; bottom: 8%; }
 
-      .signature { bottom: 36px; }
+      h1 { font-size: clamp(3.65rem, 16vw, 6.7rem); }
+
+      .tags { margin-top: 37px; }
+
+      .profile {
+        width: min(100%, 350px);
+        padding-left: 20px;
+      }
 
       .section { padding-top: 76px; }
 
-      .facts { grid-template-columns: 1fr; margin-top: 34px; }
+      .section-intro { grid-template-columns: 1fr; gap: 22px; }
 
-      .fact { min-height: auto; padding: 25px 22px 30px; }
+      .section-side { text-align: left; }
 
-      .fact-index { margin-bottom: 31px; }
-
-      .statement {
+      .facts {
         grid-template-columns: 1fr;
-        gap: 11px;
-        margin-top: 76px;
+        margin-top: 37px;
       }
 
-      .contact { margin-top: 76px; padding: 46px 0; }
+      .fact { min-height: 215px; padding: 23px 21px; }
+
+      .fact code { margin-bottom: 46px; }
+
+      .focus { margin-top: 76px; }
+
+      .contact { margin-top: 76px; padding: 50px 0; }
 
       .contact-inner {
         grid-template-columns: 1fr;
-        gap: 38px;
-        width: min(100% - 32px, var(--max-width));
+        gap: 40px;
+        width: min(100% - 32px, var(--max));
+      }
+
+      .links a {
+        grid-template-columns: 1fr auto;
+        gap: 8px 16px;
+      }
+
+      .links span:nth-child(2) { grid-column: 1 / 2; }
+
+      .links span:last-child {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
       }
 
       footer {
@@ -400,75 +433,98 @@
 </head>
 <body>
   <header class="wrap">
-    <a class="brand" href="#top" aria-label="홍준현 홈페이지 처음으로">JUNHYEON <span>HONG</span></a>
-    <nav aria-label="주요 메뉴">
-      <a href="#about">소개</a>
-      <a href="#direction">방향</a>
-      <a href="#contact">연락처</a>
+    <a class="brand" href="#top" aria-label="Hong Junhyeon home">HJH</a>
+    <nav aria-label="Main navigation">
+      <a href="#profile">PROFILE</a>
+      <a href="#focus">FOCUS</a>
+      <a href="#contact">CONTACT</a>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero wrap" aria-labelledby="main-title">
-      <p class="eyebrow">Personal Homepage / 2026</p>
-      <h1 id="main-title">홍준현<span class="muted">,</span><br>다음을 향해<br>나아갑니다<span class="muted">.</span></h1>
-      <p class="lead">
-        서울대학교 첨단융합학부에서 배움을 쌓고 있습니다.
-        차세대지능형반도체전공을 향해, 기술이 만드는 다음 가능성을 탐구합니다.
-      </p>
-      <div class="actions">
-        <a class="button" href="https://github.com/hjh-snu" target="_blank" rel="noreferrer">GitHub 보기 <span aria-hidden="true">↗</span></a>
-        <a class="button button--ghost" href="#contact">연락하기</a>
+    <section class="hero wrap" aria-labelledby="name">
+      <div>
+        <p class="index">PERSONAL INDEX / 2026</p>
+        <h1 id="name"><span>HONG</span><span>JUNHYEON</span></h1>
+        <ul class="tags" aria-label="Profile keywords">
+          <li>SEOUL NATIONAL UNIVERSITY</li>
+          <li>ADVANCED CONVERGENCE</li>
+          <li>STUDENT</li>
+        </ul>
       </div>
-      <div class="signature" aria-hidden="true">Hong Junhyeon</div>
+
+      <aside class="profile" id="profile" aria-label="Profile details">
+        <div class="profile-row">
+          <span class="label">AFFILIATION</span>
+          <span class="value">Seoul National University</span>
+        </div>
+        <div class="profile-row">
+          <span class="label">DEPARTMENT</span>
+          <span class="value">Advanced Convergence</span>
+        </div>
+        <div class="profile-row">
+          <span class="label">FUTURE TRACK</span>
+          <span class="value value--small">Next-Generation Intelligent Semiconductors</span>
+        </div>
+      </aside>
     </section>
 
-    <section class="section wrap" id="about" aria-labelledby="about-title">
-      <p class="section-label">About</p>
-      <h2 id="about-title">배움의 기반을 단단히 다지고, 더 넓은 분야로 연결합니다.</h2>
+    <section class="section wrap" id="focus" aria-labelledby="focus-title">
+      <div class="section-intro">
+        <div>
+          <p class="section-number">02 / FOCUS</p>
+          <h2 id="focus-title">CURIOUS.<br>PRECISE.<br>FORWARD.</h2>
+        </div>
+        <p class="section-side">SEMICONDUCTOR<br>INTELLIGENCE<br>CONVERGENCE</p>
+      </div>
 
       <div class="facts">
         <article class="fact">
-          <span class="fact-index">01 / AFFILIATION</span>
-          <h3>서울대학교<br>첨단융합학부</h3>
-          <p>새로운 기술과 학문의 접점을 탐구하며 성장하고 있습니다.</p>
-        </article>
-        <article class="fact" id="direction">
-          <span class="fact-index">02 / DIRECTION</span>
-          <h3>차세대지능형<br>반도체전공</h3>
-          <p>희망 전공을 향해 필요한 기반을 차근차근 쌓아가고 있습니다.</p>
+          <code>01 / NOW</code>
+          <h3>ADVANCED<br>CONVERGENCE</h3>
+          <p>SNU · ACADEMIC FOUNDATION</p>
         </article>
         <article class="fact">
-          <span class="fact-index">03 / INTEREST</span>
-          <h3>반도체 · 지능<br>· 융합 기술</h3>
-          <p>기술의 원리와 그것이 만들어 갈 미래에 관심을 두고 있습니다.</p>
+          <code>02 / PATH</code>
+          <h3>INTELLIGENT<br>SEMICONDUCTORS</h3>
+          <p>NEXT-GENERATION MAJOR</p>
+        </article>
+        <article class="fact">
+          <code>03 / KEYWORDS</code>
+          <h3>CHIPS<br>AI · SYSTEMS</h3>
+          <p>TECHNOLOGY · EXPLORATION</p>
         </article>
       </div>
 
-      <div class="statement">
-        <strong>MY APPROACH</strong>
-        <p>호기심에서 출발해 깊이 이해하고, 배운 것을 새로운 시도로 이어 갑니다.</p>
+      <div class="focus" aria-label="Interest keywords">
+        <span>SEMICONDUCTOR</span>
+        <span>INTELLIGENCE</span>
+        <span>CONVERGENCE</span>
+        <span>EXPLORATION</span>
       </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="contact-inner">
         <div>
-          <p class="section-label">Contact</p>
-          <h2 id="contact-title">같이 이야기해요.</h2>
+          <p class="section-number">03 / CONTACT</p>
+          <h2 id="contact-title">LET’S<br>CONNECT.</h2>
         </div>
-        <div class="contact-links">
+        <div class="links">
           <a href="mailto:hongjunhyeon43@snu.ac.kr">
-            <span>이메일</span>
-            <span>hongjunhyeon43@snu.ac.kr ↗</span>
+            <span>EMAIL</span>
+            <span>hongjunhyeon43@snu.ac.kr</span>
+            <span aria-hidden="true">↗</span>
           </a>
           <a href="https://github.com/hjh-snu" target="_blank" rel="noreferrer">
-            <span>GitHub</span>
-            <span>@hjh-snu ↗</span>
+            <span>GITHUB</span>
+            <span>@hjh-snu</span>
+            <span aria-hidden="true">↗</span>
           </a>
           <a href="https://www.instagram.com/ordinary_1107/" target="_blank" rel="noreferrer">
-            <span>Instagram</span>
-            <span>@ordinary_1107 ↗</span>
+            <span>INSTAGRAM</span>
+            <span>@ordinary_1107</span>
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
@@ -476,8 +532,8 @@
   </main>
 
   <footer class="wrap">
-    <span>© 2026 Hong Junhyeon</span>
-    <a href="https://github.com/hjh-snu/hjh-snu" target="_blank" rel="noreferrer">View source ↗</a>
+    <span>© 2026 HONG JUNHYEON</span>
+    <a href="https://github.com/hjh-snu/hjh-snu" target="_blank" rel="noreferrer">SOURCE ↗</a>
   </footer>
 </body>
 </html>
